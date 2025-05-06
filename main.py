@@ -15,10 +15,14 @@ def get_book_text(file_path):
 
 ## main ##
 def main(): ## main function
-    #
-    book_text = get_book_text("books/frankenstein.txt") 
-    word_count = get_word_count(book_text) # gets word count
-    char_count = get_char_count(book_text) # gets char count
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)           # exits if no file path is provided
+    file_path = sys.argv[1]   # gets file path from command line argument
+
+    book_text = get_book_text(file_path) 
+    word_count = get_word_count(book_text)      # gets word count
+    char_count = get_char_count(book_text)      # gets char count
     sorted_char_count = char_sorter(char_count) # sorts chars by count
     ## print results
     print("============ BOOKBOT ============")
@@ -31,7 +35,7 @@ def main(): ## main function
         print(f"{item['char']}: {item['count']}") # prints sorted char count
 
     print("============= END ===============")
-    return book_text
+    return book_text                              #end of main function
 
     
 
