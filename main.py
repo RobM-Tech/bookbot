@@ -1,29 +1,24 @@
-
+from stats import get_word_count
 
 # Functions
 
 ## get book text from file ##
 
-def get_book_text(file_path):
-    # Read the book text from the file
+def get_book_text(file_path):## Read the book text from the file
+    #
     with open(file_path) as f:
-        book_text = f.read()
-    return book_text
+        book_text = f.read() ## converts file to text
+    return book_text         ## returns the text
 
-## data analysis ##
 
-def get_word_count(text):
-    words = text.split()
-    word_count = len(words)
-    return word_count
 
 ## main ##
-def main():
+def main(): ## main function
     #
-    text = get_book_text("books/frankenstein.txt")
-    word_count = get_word_count(text)
+    book_text = get_book_text("books/frankenstein.txt") 
+    word_count = get_word_count(book_text)
     print(f"{word_count} words found in the document.")
-    return text
+    return book_text
 
 if __name__ == "__main__":
     main()    
